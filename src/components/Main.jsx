@@ -1,12 +1,13 @@
+import Image from "next/image";
+
 const Main = () => {
 
     return(
-        
         <main>
     <section class="weather-container">
         <div class="city">
             <h2>Villejuif</h2>
-            <i class="fas fa-sun"></i>
+            <Image href="https://em-content.zobj.net/source/apple/118/black-sun-with-rays_2600.png"/>
             <p>Température : 20°C</p>
             <p>Conditions : Ensoleillé</p>
         </div>
