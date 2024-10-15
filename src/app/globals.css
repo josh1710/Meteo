@@ -1,134 +1,287 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
+/* Général */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   color: #333;
   text-align: center;
-  background-image: url('https://static.vecteezy.com/ti/photos-gratuite/p2/3441523-fond-nuageux-rose-et-bleu-gratuit-photo.jpg'); 
-   background-size: cover;
-  /* background-position: bottom;
-  background-repeat: no-repeat; */ 
+  background: linear-gradient(to bottom right, #e0f7fa, #f5f5f5);
+  background-image: url("https://static.vecteezy.com/ti/photos-gratuite/p2/3441523-fond-nuageux-rose-et-bleu-gratuit-photo.jpg");
+  background-size: cover;
+  background-attachment: fixed; /* Fixe le fond lors du défilement */
 }
 
+/* En-tête */
 header {
-  background-color: #4683b4d9;
-  padding: 20px;
-  color: white;
-  margin-bottom: 20px;
-  text-shadow: rgba(0, 0, 0, 0.663) 1px 0 5px;
-  
-}
-
-  /* main{
-
-  } */
-
-h1 {
-  font-size: 40px;
-  margin: 0;
-}
-
-.weather-container {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-}
-
-.city {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.city:hover {
-  transform: translateY(-10px);
-}
-
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.city i {
-  font-size: 3em;
-  margin-bottom: 10px;
-  color: #ffa500; 
-}
-
-p {
-  margin-bottom: 10px;
-}
-
-
-footer {
-  background-color: #4683b4d9;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(74, 144, 226, 0.9);
   color: white;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px; /* Ajout de bordures arrondies */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
   padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+  width: 200px;
+  transition: all 0.3s;
+}
+
+.search-bar input[type="text"]:hover,
+.search-bar input[type="text"]:focus {
+  background-color: #b2ebf2; /* Couleur plus claire au survol */
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #ff5722;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Ajout d'une transformation */
+}
+
+.search-bar button:hover {
+  background-color: #e64a19;
+}
+
+.search-bar button:active {
+  transform: scale(0.95); /* Réduire le bouton lors du clic */
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+/* Pied de page */
+footer {
+  background-color: rgba(74, 144, 226, 0.9);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
   position: fixed;
-  width: 100%;
   bottom: 0;
+  width: 100%;
+  border-radius: 10px 10px 0 0; /* Bordures arrondies en haut */
 }
 
 footer p {
   margin: 0;
-  font-size: 0.9em;
-  text-shadow: rgba(0, 0, 0, 0.663) 1px 0 5px;
+  font-size: 14px;
 }
 
-
-@media (max-width: 768px) {
-  h1 {
-      font-size: 2em;
-  }
-
-  .weather-container {
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 70px;
-  }
-
-  .city {
-      width: 90%;
-      margin: 0 auto;
-  }
-
-  footer {
-      font-size: 0.8em;
-      padding: 15px;
-  }
+footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-@media (max-width: 480px) {
-  h1 {
-      font-size: 1.8em;
-  }
+footer a:hover {
+  color: #e0f7fa;
+}
 
-  .city {
-      padding: 15px;
-  }
+/* Section principale */
+main {
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(245, 245, 245, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-  h2 {
-      font-size: 1.3em;
-  }
+/* Conteneur de météo */
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  p {
-      font-size: 1em;
-  }
+/* Style de la ville */
+.city {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-  footer {
-      padding: 12px;
-  }
+.city:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
 
-  
+.city h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.city p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Boutons de navigation */
+.navigation-buttons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-buttons button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.navigation-buttons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Détails de la météo */
+.weather-details {
+  background-color: #e8f0fe;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Liste des prévisions */
+.weather-details ul {
+  list-style: none;
+  padding: 0;
+  display: grid; /* Utilisation de grid pour une mise en page à grille */
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 3 colonnes minimum */
+  gap: 15px; /* Espacement entre les carrés */
+}
+
+.weather-details li {
+  background-color: white; /* Couleur de fond pour chaque case */
+  border-radius: 8px; /* Coins arrondis pour chaque case */
+  padding: 10px; /* Espacement interne */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  text-align: center; /* Centre le contenu */
+  transition: transform 0.3s; /* Effet de transition lors du survol */
+}
+
+.weather-details li:hover {
+  transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+.weather-icon {
+  width: 40px; /* Taille de l'icône */
+  margin: 5px 0; /* Marges autour de l'icône */
+}
+
+.weather-details li strong {
+  display: block; /* Affiche l'heure sur une nouvelle ligne */
+  font-size: 1.1rem; /* Taille de police pour l'heure */
+  margin-bottom: 5px; /* Marges sous l'heure */
+}
+
+/* Sélecteur de jour */
+.day-selector {
+  margin: 20px 0;
+}
+
+.day-selector label {
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.day-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s; /* Ajout d'une transformation */
+}
+
+.day-button:hover {
+  background-color: #0056b3;
+}
+
+.day-button.active {
+  background-color: #00acc1; /* Couleur pour le bouton actif */
+  font-weight: bold;
+}
+
+/* Ajout de styles pour différents types de météo */
+.sunny {
+  background-color: rgba(255, 235, 59, 0.5); /* Jaune pour temps ensoleillé */
+}
+
+.cloudy {
+  background-color: rgba(189, 189, 189, 0.5); /* Gris pour temps nuageux */
+}
+
+.rainy {
+  background-color: rgba(33, 150, 243, 0.5); /* Bleu pour temps pluvieux */
+}
+
+.snowy {
+  background-color: rgba(255, 255, 255, 0.5); /* Blanc pour temps neigeux */
 }
